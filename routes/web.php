@@ -69,10 +69,12 @@ Route::post('/venta/update/{id}', [VentaController::class, 'update'])->name('ven
 
 //rutas de detalle_venta
 Route::post('/detalle_venta/update/{id}', [Detalle_ventaController::class, 'update'])->name('detalle_venta.update');
+
 Route::get('/detalle_venta/index', [Detalle_ventaController::class, 'index'])->name('detalle_venta.index');
 Route::get('/detalle_venta/create', [Detalle_ventaController::class, 'create'])->name('detalle_venta.create');
 Route::post('/detalle_venta/store', [Detalle_ventaController::class, 'store'])->name('detalle_venta.store');
 Route::post('/detalle_venta/delete/{id}', [Detalle_ventaController::class, 'delete'])->name('detalle_venta.delete');
+
 Route::get('/detalle_venta/edit/{id}', [Detalle_ventaController::class, 'edit'])->name('detalle_venta.edit');
 
 //lote

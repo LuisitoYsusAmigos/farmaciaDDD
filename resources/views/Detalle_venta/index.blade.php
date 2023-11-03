@@ -42,6 +42,7 @@ Detalle venta
                     <td>{{$detalle_venta->cantidad}}</td>
                     <td>{{$detalle_venta->precio}}</td>
                     <td>
+                        
                         <a href="{{url('/detalle_venta/edit/'.$detalle_venta->id_detalle_venta)}}" class="btn btn-warning">Editar</a> 
                         
                         <form action="{{ url('/detalle_venta/delete/'.$detalle_venta->id_detalle_venta) }}" method="POST" class="d-inline">

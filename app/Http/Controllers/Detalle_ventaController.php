@@ -97,8 +97,8 @@ class Detalle_ventaController extends Controller
 
     public function update(StoreDetalle_ventaRequest $request, string $id)
     {
-        //dd($request);
-        //die();
+        dd($request);
+        die();
         $Detalle_ventaRepository = new Detalle_ventaRepositoryImpl();
 
         $casoDeUsoGetDetalle_venta = new GetDetalle_ventaUseCase($Detalle_ventaRepository);
