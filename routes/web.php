@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\Detalle_ventaController;
 use App\Http\Controllers\LaboratorioController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\VentaController;
@@ -65,3 +66,13 @@ Route::resource('producto', ProductoController::class);
 Route::post('/producto/update/{id}', [ProductoController::class, 'update'])->name('producto.update');
 Route::resource('venta', VentaController::class);
 Route::post('/venta/update/{id}', [VentaController::class, 'update'])->name('venta.update');
+
+//rutas de detalle_venta
+Route::post('/detalle_venta/update/{id}', [Detalle_ventaController::class, 'update'])->name('detalle_venta.update');
+Route::get('/detalle_venta/index', [Detalle_ventaController::class, 'index'])->name('detalle_venta.index');
+Route::get('/detalle_venta/create', [Detalle_ventaController::class, 'create'])->name('detalle_venta.create');
+Route::post('/detalle_venta/store', [Detalle_ventaController::class, 'store'])->name('detalle_venta.store');
+Route::post('/detalle_venta/delete/{id}', [Detalle_ventaController::class, 'delete'])->name('detalle_venta.delete');
+Route::get('/detalle_venta/edit/{id}', [Detalle_ventaController::class, 'edit'])->name('detalle_venta.edit');
+
+//lote
