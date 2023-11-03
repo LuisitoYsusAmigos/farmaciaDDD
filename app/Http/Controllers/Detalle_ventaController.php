@@ -15,6 +15,7 @@ use App\DDD\Application\Detalle_venta\UseCases\CreateDetalle_ventaUseCase;
 use Symfony\Component\Routing\Exception\InvalidParameterException;
 use App\DDD\Application\Detalle_venta\UseCases\GetAllDetalle_ventaUseCase;
 use App\DDD\Application\Detalle_venta\UseCases\GetDetalle_ventaUseCase;
+use App\DDD\Application\Detalle_venta\UseCases\DeleteDetalle_ventaUseCase;
 
 class Detalle_ventaController extends Controller
 {
@@ -69,10 +70,6 @@ class Detalle_ventaController extends Controller
         {
             throw new DomainException('No se pudo crear al Detalle_venta');   
         }
-
-
-
-
     }
 
     public function show()
@@ -82,6 +79,7 @@ class Detalle_ventaController extends Controller
 
     public function edit($id)
     {
+        
         $Detalle_ventaRepository = new Detalle_ventaRepositoryImpl();
 
         $casoDeUsoGetDetalle_venta = new GetDetalle_ventaUseCase($Detalle_ventaRepository);
@@ -99,6 +97,8 @@ class Detalle_ventaController extends Controller
 
     public function update(StoreDetalle_ventaRequest $request, string $id)
     {
+        //dd($request);
+        //die();
         $Detalle_ventaRepository = new Detalle_ventaRepositoryImpl();
 
         $casoDeUsoGetDetalle_venta = new GetDetalle_ventaUseCase($Detalle_ventaRepository);
@@ -132,9 +132,21 @@ class Detalle_ventaController extends Controller
 
     }
 
-    public function delete()
+    public function delete($id)
     {
+        
+        $detalle_ventaRepository = new Detalle_ventaRepositoryImpl();
 
+        $casoDeUsoDeleteProveedor = new DeleteDetalle_ventaUseCase($detalle_ventaRepository);
+        
+        if($casoDeUsoDeleteProveedor->deleteDetalle_venta($id))
+        {
+            return redirect()->route('detalle_venta.index')->with('success','El detalle venta se elimino exitosamente');
+        }
+        else
+        {
+            throw new DomainException('No se pudo eliminar al detalle ');   
+        }
     }
 
 }

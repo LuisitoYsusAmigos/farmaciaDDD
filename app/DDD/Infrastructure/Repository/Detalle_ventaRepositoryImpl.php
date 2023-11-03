@@ -71,6 +71,7 @@ class Detalle_ventaRepositoryImpl implements Detalle_ventaRepository
 
     public function deleteDetalle_venta($id): bool
     {
+        
         $affected = Detalle_ventaORM::destroy($id);
         return $affected > 0;
     }

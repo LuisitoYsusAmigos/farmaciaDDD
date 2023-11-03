@@ -44,12 +44,10 @@ Detalle venta
                     <td>
                         <a href="{{url('/detalle_venta/edit/'.$detalle_venta->id_detalle_venta)}}" class="btn btn-warning">Editar</a> 
                         
-                       <form action="{{ url('/detalle_venta/delete/'.$detalle_venta->id_detalle_venta) }}" method="POST" class="d-inline">
-                           @csrf
-                           {{@method_field('DELETE')}}
-                           <input type="submit" onclick="return confirm('¿Realmente deseas borrar?')" value="Borrar" class="btn btn-danger">
-                       
-                       </form>
+                        <form action="{{ url('/detalle_venta/delete/'.$detalle_venta->id_detalle_venta) }}" method="POST" class="d-inline">
+                            @csrf
+                            <input type="submit" onclick="return confirm('¿Realmente deseas borrar?')" value="Borrar" class="btn btn-danger">
+                        </form>
                    </td>
         
                 </tr>
