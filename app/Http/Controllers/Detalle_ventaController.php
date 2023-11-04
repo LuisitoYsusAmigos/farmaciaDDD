@@ -97,8 +97,7 @@ class Detalle_ventaController extends Controller
 
     public function update(StoreDetalle_ventaRequest $request, string $id)
     {
-        dd($request);
-        die();
+        
         $Detalle_ventaRepository = new Detalle_ventaRepositoryImpl();
 
         $casoDeUsoGetDetalle_venta = new GetDetalle_ventaUseCase($Detalle_ventaRepository);
@@ -122,7 +121,7 @@ class Detalle_ventaController extends Controller
         if($casoDeUsoUpdateDetalle_venta->updateDetalle_venta($id, $Detalle_venta))
         {
         
-           return redirect()->route('Detalle_venta.index')->with('success','Detalle_venta Modificado Exitosamente');
+           return redirect()->route('detalle_venta.index')->with('success','Detalle_venta Modificado Exitosamente');
         }
         else
         {
