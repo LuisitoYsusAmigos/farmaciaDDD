@@ -1,3 +1,6 @@
+<?php 
+//dd($lotes);
+?>
 @extends('layouts.app')
 @section('content')
 <body>
@@ -27,31 +30,35 @@
                 <th>precio</th>
                 <th>sub total</th>
                 <th>id compra</th>
+                <th>id producto</th>
+                <th>opciones</th>
                 
               </tr>
             </thead>
             <tbody>
                 @foreach ($lotes as $lote )
                 <tr>
-                    <td>{{ $lote->idlote }}</td>
-                    <td>{{$lote->nombrelote}}</td>
-                    <td>{{$lote->email}}</td>
-                    <td>{{$lote->direccion}}</td>
-                    <td>{{$lote->ruc}}</td>
+                    <td>{{$lote->id_lote }}</td>
+                    <td>{{$lote->fecha_expiracion}}</td>
+                    <td>{{$lote->precio_compra}}</td>
+                    <td>{{$lote->cantidad}}</td>
+                    <td>{{$lote->precio}}</td>
+                    <td>{{$lote->subtotal}}</td>
+                    <td>{{$lote->id_compra}}</td>
+                    <td>{{$lote->id_producto}}</td>
+
                     <td>
-                        <a href="{{url('/lote/edit/'.$lote->idlote)}}" class="btn btn-warning">Editar</a> 
+                        <a href="{{url('/lote/edit/'.$lote->id_lote)}}" class="btn btn-warning">Editar</a> 
                         
-                       <form action="{{ url('/lote/delete/'.$lote->idlote) }}" method="POST" class="d-inline">
+                       <form action="{{ url('/lote/delete/'.$lote->id_lote) }}" method="POST" class="d-inline">
                            @csrf
                            <input type="submit" onclick="return confirm('¿Realmente deseas borrar?')" value="Borrar" class="btn btn-danger">
                        </form>
-                   </td>
-        
+                   </td>     
                 </tr>
                 @endforeach
             </tbody>
         </table>
-    </div>
-   
+    </div>  
 </body>
 @endsection

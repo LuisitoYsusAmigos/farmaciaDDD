@@ -22,6 +22,16 @@ return new class extends Migration
             $table->integer('id_producto');
             $table->integer('id_venta');
             $table->timestamps();
+
+            /* 
+            id_detalle_venta int primary key,
+            subtotal double,
+            utilidad double,
+            cantidad int,
+            precio double,
+            id_producto int,
+            id_venta int
+            */
         });
     }
 

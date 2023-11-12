@@ -11,4 +11,6 @@ class Detalle_ventaORM extends Model
     protected $primaryKey = 'id_detalle_venta';
 
     protected $fillable = ['id_detalle_venta','subtotal','utilidad','cantidad','precio','id_producto','id_venta'];
+
+    public $timestamps = false;
 }

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <form action="{{ url('/proveedor/update/'.$proveedor->idProveedor) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('/lote/update/'.$Lote->id_lote) }}" method="POST" enctype="multipart/form-data">
             @csrf
-            @include('Proveedor.form');
+            @include('Lote.form');
         </form>
     </div>
 @endsection

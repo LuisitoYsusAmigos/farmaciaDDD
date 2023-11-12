@@ -15,13 +15,18 @@ class LoteRepositoryImpl implements LoteRepository
     //funcion addLote de la interfaz implementada para guardar en la base de datos
     public function addLote(Lote $Lote): bool
     {
+        //dd($Lote);
         $model = new LoteORM([
-            'id_Lote' => $Lote->id_Lote,
-            'nombre_Lote' => $Lote->nombreLote,
-            'email' => $Lote->email,
-            'direccion' => $Lote->direccion,
-            'ruc' => $Lote->ruc
+            'id_lote' => $Lote->id_lote,
+            'fecha_expiracion' => $Lote->fecha_expiracion,
+            'precio_compra' => $Lote->precio_compra,
+            'cantidad' => $Lote->cantidad,
+            'precio' => $Lote->precio,
+            'subtotal'=>$Lote->subtotal,
+            'id_compra'=>$Lote->id_compra,
+            'id_producto'=>$Lote->id_producto
         ]);
+        //dd($model);
 
         return $model->save();
     } 
@@ -29,15 +34,21 @@ class LoteRepositoryImpl implements LoteRepository
     //de aqui para abajo es lo mismo que arriba pero con diferentes funcionalidades del CRUD
     public function updateLote($id, Lote $Lote): bool
     {
+        
         $model = LoteORM::query()->findOrFail($id);
-        //dd($model);
+        
         return $model->update(
             [
+                'id_lote'=> $Lote->id_lote,
+                'fecha_expiracion' => $Lote->fecha_expiracion,
+                'precio_compra'=> $Lote->precio_compra,
+                'cantidad' => $Lote->cantidad,
+                'precio'=> $Lote->precio,
+                'subtotal'=> $Lote->subtotal,
+                'id_compra'=> $Lote->id_compra,
+                'id_producto'=>$Lote->id_producto
+                
                 //'idLote' => $Lote->idLote,
-                'nombre_Lote' => $Lote->nombreLote,
-                'email' => $Lote->email,
-                'direccion' => $Lote->direccion,
-                'ruc' => $Lote->ruc
             ]);
     }
 
@@ -59,13 +70,22 @@ class LoteRepositoryImpl implements LoteRepository
 
         foreach (LoteORM::all() as $model)
         {
-            $list[$model->idLote] = $this->makeLoteFrom($model);
+            
+            $list[$model->id_lote] = $this->makeLoteFrom($model);
         }
         return $list;
     }
 
     protected function makeLoteFrom(LoteORM $Lote):Lote
     {
-        return new Lote($Lote->idLote, $Lote->nombre_Lote, $Lote->email, $Lote->direccion, $Lote->ruc);
+        return new Lote(
+            $Lote->id_lote,
+            $Lote->fecha_expiracion,
+            $Lote->precio_compra,
+            $Lote->cantidad,
+            $Lote->precio,
+            $Lote->subtotal,
+            $Lote->id_compra,
+            $Lote->id_producto);
     }
 }

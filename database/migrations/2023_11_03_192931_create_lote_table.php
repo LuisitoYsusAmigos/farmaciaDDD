@@ -19,7 +19,20 @@ return new class extends Migration
             $table->double('precio');
             $table->double('subtotal');
             $table->integer('id_compra');
+            $table->integer('id_producto');
             $table->timestamps();
+/*
+            id_lote INT PRIMARY KEY,
+            fecha_expiracion DATE,
+            precio_compra DOUBLE,
+            cantidad INT,
+            precio DOUBLE,
+            subtotal DOUBLE,
+            id_compra INT ,
+            id_producto INT,
+*/
+
+
         });
     }
 

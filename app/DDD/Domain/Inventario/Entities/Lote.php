@@ -13,7 +13,8 @@ class Lote
     public $precio;
     public $subtotal;
     public $id_compra;
-
+    public $id_producto;
+    
     //Funcion de constructor de la clase Lote
     public function __construct(
         //Valores por defecto en caso de no pasar argumentos
@@ -23,7 +24,9 @@ class Lote
         $cantidad = null,
         $precio = null,
         $subtotal = null,
-        $id_compra = null
+        $id_compra = null,
+        $id_producto = null,
+        
     )
     {
         //Asignacion de los valores a la clase Lote
@@ -34,6 +37,9 @@ class Lote
         $this->precio = $precio;
         $this->subtotal = $subtotal;
         $this->id_compra = $id_compra;
+        $this->id_producto = $id_producto;
+        
+
 
 
     }

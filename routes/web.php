@@ -1,8 +1,10 @@
 <?php
 
+use App\DDD\Domain\Inventario\Entities\Lote;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\Detalle_ventaController;
 use App\Http\Controllers\LaboratorioController;
+use App\Http\Controllers\LoteController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\VentaController;
 use Illuminate\Support\Facades\Route;
@@ -78,3 +80,11 @@ Route::post('/detalle_venta/delete/{id}', [Detalle_ventaController::class, 'dele
 Route::get('/detalle_venta/edit/{id}', [Detalle_ventaController::class, 'edit'])->name('detalle_venta.edit');
 
 //lote
+Route::post('/lote/update/{id}', [LoteController::class, 'update'])->name('lote.update');
+
+Route::get('/lote/index', [LoteController::class, 'index'])->name('lote.index');
+Route::get('/lote/create', [LoteController::class, 'create'])->name('lote.create');
+Route::post('/lote/store', [LoteController::class, 'store'])->name('lote.store');
+Route::post('/lote/delete/{id}', [LoteController::class, 'delete'])->name('lote.delete');
+
+Route::get('/lote/edit/{id}', [LoteController::class, 'edit'])->name('detalle_venta.edit');
